@@ -1,460 +1,490 @@
 * {
-  font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .star {
-  height: 50px;
-  width: 50px;
-  -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  text-align: center;
-  font-size: small;
-  background: #E3062D;
-  color: white;
+    height: 50px;
+    width: 50px;
+    -webkit-clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+    text-align: center;
+    font-size: small;
+    background: #e3062d;
+    color: white;
 }
 
 .star::before {
-  display: inline-block;
-  height: 100%;
-  background: blue;
-  vertical-align: middle;
-  content: "";
+    display: inline-block;
+    height: 100%;
+    background: blue;
+    vertical-align: middle;
+    content: "";
 }
 
 hr {
-  height: 5px;
-  margin-left: 7px;
-  margin-right: 40px;
-  margin-bottom: -3px;
+    height: 5px;
+    margin-left: 7px;
+    margin-right: 40px;
+    margin-bottom: -3px;
 }
 
 .hr-danger {
-  background-image: -webkit-linear-gradient(left, #E3062D, #E2E2E2, #E2E2E2);
+    background-image: -webkit-linear-gradient(left, #e3062d, #e2e2e2, #e2e2e2);
 }
 
 .hr-primary {
-  background-image: -webkit-linear-gradient(#E2E2E2);
+    background-image: -webkit-linear-gradient(#e2e2e2);
 }
 
 nav {
-  background-color: #5C0000 !important;
+    background-color: #5c0000 !important;
 }
 nav .navbar-brand {
-  font-family: "Ravi Prakash", cursive;
-  font-size: 2.4em;
-  color: #FFFFFF;
+    font-family: "Ravi Prakash", cursive;
+    font-size: 2.4em;
+    color: #ffffff;
 }
 nav .navbar-brand span {
-  color: #E3062D;
-  font-family: "Ravi Prakash", cursive;
-  font-size: 1.1em;
+    color: #e3062d;
+    font-family: "Ravi Prakash", cursive;
+    font-size: 1.1em;
 }
 nav ul a {
-  color: #FFFFFF !important;
-  font-weight: 600 !important;
-  font-size: 1em;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    font-size: 1em;
 }
 
 header .card .card-img-overlay {
-  top: unset !important;
-  background: linear-gradient(rgba(0, 0, 0, 0), black 99%) !important;
+    top: unset !important;
+    background: linear-gradient(rgba(0, 0, 0, 0), black 99%) !important;
 }
 header .card .card-img-overlay .header-category {
-  background-color: #E3062D;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  font-size: medium;
-  text-transform: uppercase;
+    background-color: #e3062d;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: medium;
+    text-transform: uppercase;
 }
 header .card .card-img-overlay .header-subtitle {
-  text-transform: uppercase;
-  font-size: large;
-  font-weight: 600;
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: 600;
 }
 header .card .card-img-overlay .header-publisher {
-  text-transform: capitalize;
-  font-size: 1em;
+    text-transform: capitalize;
+    font-size: 1em;
 }
 header .card .card-img-overlay .s-header-category {
-  background-color: #E3062D;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  font-size: small;
-  text-transform: uppercase;
+    background-color: #e3062d;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: small;
+    text-transform: uppercase;
 }
 header .card .card-img-overlay .s-header-subtitle {
-  text-transform: uppercase;
-  font-size: small;
-  font-weight: 600;
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: 600;
 }
 header .card .card-img-overlay .s-header-publisher {
-  text-transform: capitalize;
-  font-size: 0.89em;
+    text-transform: capitalize;
+    font-size: 0.89em;
 }
 
 #upRelease a {
-  color: #0F0F0F;
-  text-decoration: none;
+    color: #0f0f0f;
+    text-decoration: none;
 }
 #upRelease #hover a {
-  color: #E2E2E2;
+    color: #e2e2e2;
 }
 #upRelease #hover a:hover {
-  color: #E3062D;
+    color: #e3062d;
 }
 #upRelease .card {
-  border: #FFFFFF;
-  color: #FFFFFF;
-  text-transform: uppercase;
+    border: #ffffff;
+    color: #ffffff;
+    text-transform: uppercase;
 }
 #upRelease .card .card-img-overlay {
-  top: unset !important;
-  background: linear-gradient(rgba(0, 0, 0, 0), black 99%) !important;
+    top: unset !important;
+    background: linear-gradient(rgba(0, 0, 0, 0), black 99%) !important;
 }
 #upRelease .card .card-title {
-  font-size: small;
-  background-color: #E3062D;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+    font-size: small;
+    background-color: #e3062d;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
 }
 #upRelease .uprelease-title {
-  text-transform: uppercase;
-  font-weight: 600;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 #upRelease .uprelease-time {
-  font-size: small;
-  color: #7A7A7A;
+    font-size: small;
+    color: #7a7a7a;
 }
 
 #theLatest-newRelease a {
-  color: #0F0F0F;
-  text-decoration: none;
+    color: #0f0f0f;
+    text-decoration: none;
 }
 #theLatest-newRelease .card {
-  border: #FFFFFF;
+    border: #ffffff;
 }
 #theLatest-newRelease .card .card-img-overlay {
-  top: unset !important;
+    top: unset !important;
 }
 #theLatest-newRelease .card .newrelease-category {
-  color: #FFFFFF;
-  font-size: small;
-  background-color: #E3062D;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+    color: #ffffff;
+    font-size: small;
+    background-color: #e3062d;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
 }
 #theLatest-newRelease .newrelease-title {
-  text-transform: uppercase;
-  font-weight: 600;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 #theLatest-newRelease .newrelease-publish {
-  font-size: small;
-  color: #7A7A7A;
+    font-size: small;
+    color: #7a7a7a;
 }
 #theLatest-newRelease .latest-category {
-  color: #E3062D;
-  font-size: small;
-  text-transform: uppercase;
-  text-decoration: underline;
+    color: #e3062d;
+    font-size: small;
+    text-transform: uppercase;
+    text-decoration: underline;
 }
 #theLatest-newRelease .latest-title {
-  font-weight: 600;
+    font-weight: 600;
 }
 #theLatest-newRelease .latest-subtitle {
-  font-weight: 500;
-  font-size: 0.95em;
+    font-weight: 500;
+    font-size: 0.95em;
 }
 #theLatest-newRelease .latest-publisher {
-  text-align: justify;
+    text-align: justify;
 }
 #theLatest-newRelease .latest-publish {
-  font-size: small;
-  color: #7A7A7A;
+    font-size: small;
+    color: #7a7a7a;
 }
 #theLatest-newRelease #more-news {
-  color: #7A7A7A;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  text-align: center;
-  font-weight: 500;
+    color: #7a7a7a;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    text-align: center;
+    font-weight: 500;
 }
 #theLatest-newRelease #more-news a {
-  color: #E2E2E2;
+    color: #e2e2e2;
 }
 #theLatest-newRelease #more-news a:hover {
-  color: #E3062D;
+    color: #e3062d;
 }
 
 #features a {
-  color: #0F0F0F;
-  text-decoration: none;
+    color: #0f0f0f;
+    text-decoration: none;
 }
 #features .card {
-  border: #FFFFFF;
-  color: #FFFFFF;
-  text-transform: uppercase;
+    border: #ffffff;
+    color: #ffffff;
+    text-transform: uppercase;
 }
 #features .card .card-img-overlay {
-  top: unset !important;
-  background: linear-gradient(rgba(0, 0, 0, 0), black 99%) !important;
+    top: unset !important;
+    background: linear-gradient(rgba(0, 0, 0, 0), black 99%) !important;
 }
 #features .card .card-title {
-  font-size: small;
-  background-color: #E3062D;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+    font-size: small;
+    background-color: #e3062d;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
 }
 #features .features-title {
-  text-transform: uppercase;
-  font-weight: 600;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 #features .features-publisher {
-  font-size: small;
-  color: #7A7A7A;
+    font-size: small;
+    color: #7a7a7a;
 }
 #features #more-features {
-  color: #7A7A7A;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  text-align: center;
-  font-weight: 500;
+    color: #7a7a7a;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    text-align: center;
+    font-weight: 500;
 }
 #features #more-features a {
-  color: #E2E2E2;
+    color: #e2e2e2;
 }
 #features #more-features a:hover {
-  color: #E3062D;
+    color: #e3062d;
 }
 
 #guides a {
-  color: #0F0F0F;
-  text-decoration: none;
+    color: #0f0f0f;
+    text-decoration: none;
 }
 #guides .card {
-  border: #FFFFFF;
-  color: #FFFFFF;
-  text-transform: uppercase;
+    border: #ffffff;
+    color: #ffffff;
+    text-transform: uppercase;
 }
 #guides .card .card-img-overlay {
-  top: unset !important;
-  background: linear-gradient(rgba(0, 0, 0, 0), black 99%) !important;
+    top: unset !important;
+    background: linear-gradient(rgba(0, 0, 0, 0), black 99%) !important;
 }
 #guides .card .card-title {
-  font-size: small;
-  background-color: #E3062D;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+    font-size: small;
+    background-color: #e3062d;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
 }
 #guides .guides-title {
-  text-transform: uppercase;
-  font-weight: 600;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 #guides .guides-publisher {
-  font-size: small;
-  color: #7A7A7A;
+    font-size: small;
+    color: #7a7a7a;
 }
 #guides #more-guides {
-  color: #7A7A7A;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  text-align: center;
-  font-weight: 500;
+    color: #7a7a7a;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    text-align: center;
+    font-weight: 500;
 }
 #guides #more-guides a {
-  color: #E2E2E2;
+    color: #e2e2e2;
 }
 #guides #more-guides a:hover {
-  color: #E3062D;
+    color: #e3062d;
 }
 
 #reviews .card-img-overlay {
-  top: unset !important;
-  background: linear-gradient(rgba(0, 0, 0, 0), black 99%) !important;
+    top: unset !important;
+    background: linear-gradient(rgba(0, 0, 0, 0), black 99%) !important;
 }
 #reviews a {
-  color: #0F0F0F;
-  text-decoration: none;
-  text-transform: capitalize;
-  text-align: center;
+    color: #0f0f0f;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: center;
 }
 #reviews #more-reviews {
-  color: #7A7A7A;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  text-align: center;
-  font-weight: 500;
+    color: #7a7a7a;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    text-align: center;
+    font-weight: 500;
 }
 #reviews #more-reviews a {
-  color: #E2E2E2;
+    color: #e2e2e2;
 }
 #reviews #more-reviews a:hover {
-  color: #E3062D;
+    color: #e3062d;
 }
 
 #newRelease {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }
 #newRelease a {
-  color: #0F0F0F;
-  text-decoration: none;
+    color: #0f0f0f;
+    text-decoration: none;
 }
 #newRelease .img-thumbnail {
-  border: 0;
+    border: 0;
 }
 #newRelease .title {
-  text-align: center;
-  text-transform: capitalize;
-  font-weight: 500;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 500;
 }
 #newRelease #hover a {
-  color: #E2E2E2;
+    color: #e2e2e2;
 }
 #newRelease #hover a:hover {
-  color: #E3062D;
+    color: #e3062d;
 }
 
 #bestSeller {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }
 #bestSeller a {
-  color: #0F0F0F;
-  text-decoration: none;
+    color: #0f0f0f;
+    text-decoration: none;
 }
 #bestSeller .img-thumbnail {
-  border: 0;
+    border: 0;
 }
 #bestSeller .title {
-  text-align: center;
-  text-transform: capitalize;
-  font-weight: 500;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 500;
 }
 #bestSeller #hover a {
-  color: #E2E2E2;
+    color: #e2e2e2;
 }
 #bestSeller #hover a:hover {
-  color: #E3062D;
+    color: #e3062d;
 }
 
 #comingSoon {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }
 #comingSoon a {
-  color: #0F0F0F;
-  text-decoration: none;
+    color: #0f0f0f;
+    text-decoration: none;
 }
 #comingSoon .img-thumbnail {
-  border: 0;
+    border: 0;
 }
 #comingSoon .title {
-  text-align: center;
-  text-transform: capitalize;
-  font-weight: 500;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 500;
 }
 #comingSoon #hover a {
-  color: #E2E2E2;
+    color: #e2e2e2;
 }
 #comingSoon #hover a:hover {
-  color: #E3062D;
+    color: #e3062d;
 }
 
 #mostPlayed {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }
 #mostPlayed a {
-  color: #0F0F0F;
-  text-decoration: none;
+    color: #0f0f0f;
+    text-decoration: none;
 }
 #mostPlayed .img-thumbnail {
-  border: 0;
+    border: 0;
 }
 #mostPlayed .title {
-  text-align: center;
-  text-transform: capitalize;
-  font-weight: 500;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 500;
 }
 #mostPlayed #hover a {
-  color: #E2E2E2;
+    color: #e2e2e2;
 }
 #mostPlayed #hover a:hover {
-  color: #E3062D;
+    color: #e3062d;
 }
 
 #detail-newRelease {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }
 #detail-newRelease a {
-  color: #0F0F0F;
-  text-decoration: none;
+    color: #0f0f0f;
+    text-decoration: none;
 }
 #detail-newRelease .img-thumbnail {
-  border: 0;
+    border: 0;
 }
 #detail-newRelease .title {
-  text-align: center;
-  text-transform: capitalize;
-  font-weight: 500;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 500;
 }
 #detail-newRelease #hover a {
-  color: #E2E2E2;
+    color: #e2e2e2;
 }
 #detail-newRelease #hover a:hover {
-  color: #E3062D;
+    color: #e3062d;
 }
 
 #details #category {
-  font-size: small;
-  color: #E3062D;
-  text-decoration: underline;
+    font-size: small;
+    color: #e3062d;
+    text-decoration: underline;
 }
 
 #title {
-  font-weight: bolder;
-  text-align: justify;
+    font-weight: bolder;
+    text-align: justify;
 }
 
 #publisher {
-  color: #0F0F0F;
-  text-transform: capitalize;
-  font-size: small;
+    color: #0f0f0f;
+    text-transform: capitalize;
+    font-size: small;
 }
 
 #publish {
-  font-size: small;
-  color: #7A7A7A;
+    font-size: small;
+    color: #7a7a7a;
 }
 
 #desc {
-  text-align: justify;
+    text-align: justify;
 }
 
 footer #footer-info {
-  background-color: #5C0000;
-  color: #FFFFFF;
+    background-color: #5c0000;
+    color: #ffffff;
 }
 footer #footer-info #logo {
-  color: #FFFFFF;
-  font-family: "Ravi Prakash", cursive;
-  font-size: 2.4em;
+    color: #ffffff;
+    font-family: "Ravi Prakash", cursive;
+    font-size: 2.4em;
 }
 footer #footer-info #logo span {
-  font-family: "Ravi Prakash", cursive;
-  color: #E3062D;
-  font-size: 1.1em;
+    font-family: "Ravi Prakash", cursive;
+    color: #e3062d;
+    font-size: 1.1em;
 }
 footer #footer-info #location {
-  font-weight: bold;
+    font-weight: bold;
 }
 footer #footer-copyright {
-  background-color: #0F0F0F;
-  color: #FFFFFF;
-}/*# sourceMappingURL=index.css.map */
+    background-color: #0f0f0f;
+    color: #ffffff;
+} /*# sourceMappingURL=index.css.map */
+
+.pagination {
+    color: black !important;
+}
+
+.pagination a {
+    color: black !important;
+}
