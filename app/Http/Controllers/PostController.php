@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -47,6 +48,7 @@ class PostController extends Controller
         Storage::disk('public')->put($imageHashName, file_get_contents($data['image']));
         $data['image'] = $imageHashName;
         $data['user_id'] = Auth::user()->id;
+        $data['slug'] = Str::slug($data['title']);
 
         Post::create($data);
 
@@ -96,6 +98,9 @@ class PostController extends Controller
             $imageHashName = $data['image']->hashName();
             Storage::disk('public')->put($imageHashName, file_get_contents($data['image']));
             $data['image'] = $imageHashName;
+        }
+        if(array_key_exists('title', $data)){
+            $data['slug'] = Str::slug($data['title']);
         }
 
         $post->update($data);

@@ -27,7 +27,7 @@ Route::get('/guides', [CategoryListController::class, 'guides'])->name('guides')
 Route::get('/reviews', [CategoryListController::class, 'reviews'])->name('reviews');
 Route::get('/releases', [ReleaseController::class, 'index'])->name('releases');
 Route::get('/releases/list/{title}', [ReleaseController::class, 'list'])->name('releases-list');
-Route::get('/detail', DetailController::class)->name('detail');
+Route::get('/detail/{slug}', DetailController::class)->name('detail');
 
 Route::prefix('admin')
     ->middleware(['auth'])

@@ -2,35 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoryListController extends Controller
 {
-    function news(Request $request){
-        $category = 'News';
+    function news(){
+        $category = Category::News->value;
+        $posts = Post::where('category', $category)->paginate(9);
         return view('pages.category-list', [
-            'category' => $category
+            'category' => $category,
+            'posts' => $posts
         ]);
     }
 
-    function features(Request $request){
-        $category = 'Features';
+    function features(){
+        $category = Category::Feature->value;
+        $posts = Post::where('category', $category)->paginate(9);
         return view('pages.category-list', [
-            'category' => $category
+            'category' => $category,
+            'posts' => $posts
         ]);
     }
 
-    function guides(Request $request){
-        $category = 'Guides';
+    function guides(){
+        $category = Category::Guide->value;
+        $posts = Post::where('category', $category)->paginate(9);
         return view('pages.category-list', [
-            'category' => $category
+            'category' => $category,
+            'posts' => $posts
         ]);
     }
 
-    function reviews(Request $request){
-        $category = 'Reviews';
+    function reviews(){
+        $category = Category::Review->value;
+        $posts = Post::where('category', $category)->paginate(9);
         return view('pages.category-list', [
-            'category' => $category
+            'category' => $category,
+            'posts' => $posts
         ]);
     }
 }

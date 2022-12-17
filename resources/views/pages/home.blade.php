@@ -1,81 +1,56 @@
 <x-home-layout>
     <header class="container my-5">
       <div class="row">
+        @isset($posts[0])
         <div class="col-8">
-          <a href="#">
+          <a href="{{ route('detail', $posts[0]->slug) }}">
             <div class="card text-bg-dark">
-              <img src="/assets/images/warzone.jpg" class="card-img" alt="..." />
+              <img src="{{ Storage::disk('public')->url($posts[0]->image) }}" class="card-img" alt="..." />
               <div class="card-img-overlay mt-auto">
-                <h5 class="card-title px-1 rounded-1 header-category">
-                  Category
+                <h5 class="card-title px-1 rounded-1 header-category">{{ $posts[0]->category->value }}
+                              @if($posts[0]->category->value == 'Review')
+                                  ({{ $posts[0]->rating }} <i class="fa-solid fa-star text-warning"></i>)
+                              @endif
                 </h5>
-                <p class="card-text header-subtitle">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
+                <p class="card-text header-subtitle">{{ $posts[0]->title }}</p>
                 <p class="card-text header-publisher">
-                  <small>By Publisher</small>
+                  <small>By {{ $posts[0]->user->name }}</small>
                 </p>
               </div>
             </div>
           </a>
         </div>
+        @endisset
 
         <div class="col-4 d-flex flex-column justify-content-between">
-          <div class="row">
-            <div class="col">
-              <a href="#">
-                <div class="card text-bg-dark">
-                  <img
-                  src="/assets/images/the devil in me.jpg"
-                  class="card-img"
-                  alt="..."
-                  />
-                  <div class="card-img-overlay mt-auto">
-                    <h5 class="card-title px-1 rounded-1 s-header-category">
-                      Category
-                    </h5>
-                    <p class="card-text s-header-subtitle">
-                      This is a wider card with supporting text below as a natural
-                      lead-in to additional content. This content is a little bit
-                      longer.
-                    </p>
-                    <p class="card-text s-header-publisher">
-                      <small>By Publisher</small>
-                    </p>
+          @foreach ($posts as $post)
+            @continue($loop->first)
+            <div class="row">
+              <div class="col">
+                <a href="{{ route('detail', $post->slug) }}">
+                  <div class="card text-bg-dark">
+                    <img
+                    src="{{ Storage::disk('public')->url($post->image) }}"
+                    class="card-img"
+                    alt="{{ $post->title }}"
+                    />
+                    <div class="card-img-overlay mt-auto">
+                      <h5 class="card-title px-1 rounded-1 s-header-category">{{ $post->category->value }}</h5>
+                      <p class="card-text s-header-subtitle">
+                          {{ $post->title }}
+                          @if($posts[0]->category->value == "Review")
+                              ({{ $posts[0]->rating }} <i class="fa-solid fa-star text-warning"></i>)
+                          @endif
+                      </p>
+                      <p class="card-text s-header-publisher">
+                        <small>By {{ $post->user->name }}</small>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </div>
             </div>
-          </div>
-
-          <div class="row">
-            <div class="col">
-              <a href="#">
-                <div class="card text-bg-dark">
-                  <img
-                  src="/assets/images/evil west.jpg"
-                  class="card-img"
-                  alt="..."
-                  />
-                  <div class="card-img-overlay mt-auto">
-                    <h5 class="card-title px-1 rounded-1 s-header-category">
-                      Category
-                    </h5>
-                    <p class="card-text s-header-subtitle">
-                      This is a wider card with supporting text below as a natural
-                      lead-in to additional content. This content is a little bit
-                      longer.
-                    </p>
-                    <p class="card-text s-header-publisher">
-                      <small>By Publisher</small>
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </header>
@@ -87,7 +62,7 @@
         </div>
         <div class="col-1" id="hover">
           <small>
-              <a href="#">Browse All</a>              
+              <a href="{{ route('releases')}}">Browse All</a>              
           </small>
         </div>
       </div>
@@ -96,69 +71,29 @@
       </div>
 
       <div class="row my-3">
+        @foreach($releases as $release)
+          @break($loop->index == 3)
         <div class="col-4">
-          <a href="#">
+          <a href="{{ route('detail', $release->slug) }}">
             <div class="card">
               <img
-              src="/assets/images/hello neighbor 2.jpg"
+              src="{{ Storage::disk('public')->url($release->image) }}"
               class="card-img"
-              alt="..."
+              alt="{{ $release->title }}"
               />
               <div class="card-img-overlay mt-auto">
                 <h5 class="card-title px-1 rounded-1">
-                  Category
+                  {{ $release->category->value }}
                 </h5>
               </div>
             </div>
             <h6 class="card-text my-2 uprelease-title">
-              Hello neighbor 2
+              {{ $release->title }}
             </h6>
-            <p class="card-text uprelease-time"><small>Last updated 3 mins ago</small></p>
+            <p class="card-text uprelease-time"><small>{{ $release->updated_at }}</small></p>
           </a>
         </div>
-
-        <div class="col-4">
-          <a href="#">
-            <div class="card">
-              <img
-              src="/assets/images/marvel's midnight suns.jpg"
-              class="card-img"
-              alt="..."
-              />
-              <div class="card-img-overlay mt-auto">
-                <h5 class="card-title px-1 rounded-1">
-                  Category
-                </h5>
-              </div>
-            </div>
-            <h6 class="card-text my-2 uprelease-title">
-              marvel's midnight suns
-            </h6>
-            <p class="card-text uprelease-time"><small>Last updated 3 mins ago</small></p>
-          </a>
-        </div>
-
-        <div class="col-4">
-          <a href="#">
-            <div class="card">
-              <img
-              src="/assets/images/high on life.jpg"
-              class="card-img"
-              alt="..."
-              />
-              <div class="card-img-overlay mt-auto">
-                <h5 class="card-title px-1 rounded-1">
-                  Category
-                </h5>
-              </div>
-            </div>
-            <h6 class="card-text my-2 uprelease-title">
-              High On Life
-            </h6>
-            <p class="card-text uprelease-time"><small>Last updated 3 mins ago</small></p>
-          </a>
-        </div>
-
+        @endforeach
         </div>
       </div>
     </div>
@@ -171,149 +106,39 @@
             <hr class="hr-danger container-fluid" />
           </h5>
 
+          @foreach($news as $news_item)
           <div class="row my-3">
             <div class="col">
               <div class="card" style="max-width: 25em;">
                 <img
-                  src="/assets/images/warzone.jpg"
+                  src="{{ Storage::disk('public')->url($news_item->image) }}"
                   class="card-img"
-                  alt="..."
+                  alt="{{ $news_item->title }}"
                 />
               </div>
             </div>
             <div class="col-7 my-3">
               <p class="card-title latest-category">
-                Category
+                {{ $news_item->category->value }}
               </p>
-              <a href="#">
+              <a href="{{ route('detail', $news_item->slug) }}">
                 <h5 class="card-text my-3 latest-title">
-                  Call of Duty: Warzone 2 hackers are taking to the skies in flying boats
+                  {{ $news_item->title }}
                 </h5>
               </a>
-              <p class="card-text my-4 latest-subtitle">
-                Call of Duty: Warzone 2 hackers are getting creative with flying boats.
+              <p class="card-text my-4 latest-subtitle text-truncated">
+                {{ $news_item->content }}
               </p>
-              <p class="card-text latest-publisher my-0"><small>By Publisher</small></p>
-              <p class="card-text latest-publish"><small>Last updated 3 mins ago</small></p>
+              <p class="card-text latest-publisher my-0"><small>By {{ $news_item->user->name }}</small></p>
+              <p class="card-text latest-publish"><small>{{ $news_item->updated_at }}</small></p>
             </div>
             <hr class="hr-primary container-fluid"/>
           </div>
-          
-          <div class="row">
-            <div class="col">
-              <div class="card" style="max-width: 25em;">
-                <img
-                  src="/assets/images/the devil in me.jpg"
-                  class="card-img"
-                  alt="..."
-                />
-              </div>
-            </div>
-            <div class="col-7 my-3">
-              <p class="card-title latest-category">
-                Category
-              </p>
-              <a href="#">
-                <h5 class="card-text my-3 latest-title">
-                  The Devil in Me: Story Analysis — H. H. Holmes and the Murder Castle
-                </h5>
-              </a>
-              <p class="card-text my-4 latest-subtitle">
-                Learn about the crimes of H. H. Holmes and the secrets of the Murder Castle in The Devil in Me.
-              </p>
-              <p class="card-text latest-publisher my-0"><small>By Publisher</small></p>
-              <p class="card-text latest-publish"><small>Last updated 3 mins ago</small></p>
-            </div>
-            <hr class="hr-primary container-fluid"/>
-          </div>
-                    
-          <div class="row my-3">
-            <div class="col">
-              <div class="card" style="max-width: 25em;">
-                <img
-                  src="/assets/images/evil west.jpg"
-                  class="card-img"
-                  alt="..."
-                />
-              </div>
-            </div>
-            <div class="col-7 my-3">
-              <p class="card-title latest-category">
-                Category
-              </p>
-              <a href="#">
-                <h5 class="card-text my-3 latest-title">
-                  Is Evil West cross-play or cross-platform? – Answered
-                </h5>
-              </a>
-              <p class="card-text my-4 latest-subtitle">
-                Want to know if Evil West you can play the game co-op with people on other platforms?
-              </p>
-              <p class="card-text latest-publisher my-0"><small>By Publisher</small></p>
-              <p class="card-text latest-publish"><small>Last updated 3 mins ago</small></p>
-            </div>
-            <hr class="hr-primary container-fluid"/>
-          </div>
-
-          <div class="row my-3">
-            <div class="col">
-              <div class="card" style="max-width: 25em;">
-                <img
-                  src="/assets/images/marvin the martian.jpg"
-                  class="card-img"
-                  alt="..."
-                />
-              </div>
-            </div>
-            <div class="col-7 my-3">
-              <p class="card-title latest-category">
-                Category
-              </p>
-              <a href="#">
-                <h5 class="card-text my-3 latest-title">
-                  Marvin the Martian joins the MultiVersus roster as the first fighter of Season 2
-                </h5>
-              </a>
-              <p class="card-text my-4 latest-subtitle">
-                A Marvin the Martian reveal trailer was posted shortly before the character's release.
-              </p>
-              <p class="card-text latest-publisher my-0"><small>By Publisher</small></p>
-              <p class="card-text latest-publish"><small>Last updated 3 mins ago</small></p>
-            </div>
-            <hr class="hr-primary container-fluid"/>
-          </div>
-
-          <div class="row">
-            <div class="col">
-              <div class="card" style="max-width: 25em;">
-                <img
-                  src="/assets/images/warzone.jpg"
-                  class="card-img"
-                  alt="..."
-                />
-              </div>
-            </div>
-            <div class="col-7 my-3">
-              <p class="card-title latest-category">
-                Category
-              </p>
-              <a href="#">
-                <h5 class="card-text my-3 latest-title">
-                  Warzone 2: How to fix the bomb drone glitch
-                </h5>
-              </a>
-              <p class="card-text my-4 latest-subtitle">
-                A new glitch is forcing players in place, leaving them to die in Warzone 2.
-              </p>
-              <p class="card-text latest-publisher my-0"><small>By Publisher</small></p>
-              <p class="card-text latest-publish"><small>Last updated 3 mins ago</small></p>
-            </div>
-            <hr class="hr-primary container-fluid"/>
-          </div>
+          @endforeach
 
           <div class="row my-5 position-relative top-0 start-50 translate-middle" id="more-news">
             <p>
-              <a href="#">More News</a> 
+              <a href="{{ route('news') }}">More News</a> 
             </p>
           </div>
 
@@ -325,111 +150,28 @@
           </h5>
           <hr class="hr-danger container-fluid" />
 
+          @foreach($releases as $release)
           <div class="row my-3">
             <div class="card" style="max-width: 20em;">
               <img
-                src="/assets/images/goat simulator 3.jpg"
+                src="{{ Storage::disk('public')->url($release->image) }}"
                 class="card-img"
-                alt="..."
+                alt="{{ $release->title }}"
               />
               <div class="card-img-overlay mt-auto ">
                 <h5 class="card-title px-1 rounded-1 newrelease-category">
-                  Category
+                  {{ $release->category->value }}
                 </h5>
               </div>
             </div>
-            <a href="#">
+            <a href="{{ route('detail', $release->slug) }}">
               <h5 class="card-text my-2 newrelease-title">
-                Goat Simulator 3
+                {{ $release->title }}
               </h5>
             </a>
-            <p class="card-text newrelease-publish"><small>Last updated 3 mins ago</small></p>
+            <p class="card-text newrelease-publish"><small>{{ $release->updated_at }}</small></p>
           </div>
-
-          <div class="row my-3">
-            <div class="card" style="max-width: 20em;">
-              <img
-                src="/assets/images/marvel's spiderman.jpg"
-                class="card-img"
-                alt="..."
-              />
-              <div class="card-img-overlay mt-auto ">
-                <h5 class="card-title px-1 rounded-1 newrelease-category">
-                  Category
-                </h5>
-              </div>
-            </div>
-            <a href="#">
-              <h5 class="card-text my-2 newrelease-title">
-                Marvel’s Spider-Man: Miles Morales
-              </h5>
-            </a>
-            <p class="card-text newrelease-publish"><small>Last updated 3 mins ago</small></p>
-          </div>
-
-          <div class="row my-3">
-            <div class="card" style="max-width: 20em;">
-              <img
-                src="/assets/images/the crew.jpg"
-                class="card-img"
-                alt="..."
-              />
-              <div class="card-img-overlay mt-auto ">
-                <h5 class="card-title px-1 rounded-1 newrelease-category">
-                  Category
-                </h5>
-              </div>
-            </div>
-            <a href="#">
-              <h5 class="card-text my-2 newrelease-title">
-                The Crew® – Standard Edition
-              </h5>
-            </a>
-            <p class="card-text newrelease-publish"><small>Last updated 3 mins ago</small></p>
-          </div>
-          
-          <div class="row my-3">
-            <div class="card" style="max-width: 20em;">
-              <img
-                src="/assets/images/football manager 2023.jpg"
-                class="card-img"
-                alt="..."
-              />
-              <div class="card-img-overlay mt-auto ">
-                <h5 class="card-title px-1 rounded-1 newrelease-category">
-                  Category
-                </h5>
-              </div>
-            </div>
-            <a href="#">
-              <h5 class="card-text my-2 newrelease-title">
-                Football Manager 2023
-              </h5>
-            </a>
-            <p class="card-text newrelease-publish"><small>Last updated 3 mins ago</small></p>
-          </div>
-          
-          <div class="row my-3">
-            <div class="card" style="max-width: 20em;">
-              <img
-                src="/assets/images/dishonored 2.jpg"
-                class="card-img"
-                alt="..."
-              />
-              <div class="card-img-overlay mt-auto ">
-                <h5 class="card-title px-1 rounded-1 newrelease-category">
-                  Category
-                </h5>
-              </div>
-            </div>
-            <a href="#">
-              <h5 class="card-text my-2 newrelease-title">
-                Dishonored 2
-              </h5>
-            </a>
-            <p class="card-text newrelease-publish"><small>Last updated 3 mins ago</small></p>
-          </div>
-
+          @endforeach
         </div>
       </div>
     </div>
@@ -437,7 +179,7 @@
     <div class="container my-0" id="features">
       <div class="row">
         <div class="col">
-          <h5>Feautres</h5>
+          <h5>Features</h5>
         </div>
       </div>
       <div class="row">
@@ -445,109 +187,28 @@
       </div>
 
       <div class="row my-3">
+        @foreach($features as $feature)
         <div class="col-4">
-          <a href="#">
+          <a href="{{ route('detail', $feature->slug) }}">
             <div class="card">
               <img
-              src="/assets/images/Resident Evil.jpg"
+              src="{{ Storage::disk('public')->url($feature->image) }}"
               class="card-img"
-              alt="..."
+              alt="{{ $feature->title }}"
               />
             </div>
             <h6 class="card-text my-2 features-title">
-              What horror franchises could learn from Resident Evil
+              {{ $feature->title }}
             </h6>
-            <p class="card-text features-publisher"><small>By Publisher</small></p>
+            <p class="card-text features-publisher"><small>By {{ $feature->user->name }}</small></p>
           </a>
         </div>
-
-        <div class="col-4">
-          <a href="#">
-            <div class="card">
-              <img
-              src="/assets/images/Warhammer.jpg"
-              class="card-img"
-              alt="..."
-              />
-            </div>
-            <h6 class="card-text my-2 features-title">
-              Best Warhammer 40K: Darktide weapons
-            </h6>
-            <p class="card-text features-publisher"><small>By Publisher</small></p>
-          </a>
-        </div>
-
-        <div class="col-4">
-          <a href="#">
-            <div class="card">
-              <img
-              src="/assets/images/Farming Simulator 22.jpg"
-              class="card-img"
-              alt="..."
-              />
-            </div>
-            <h6 class="card-text my-2 features-title">
-              Farming Simulator 22 – Platinum Edition — Is it worth it?
-            </h6>
-            <p class="card-text features-publisher"><small>By Publisher</small></p>
-          </a>
-        </div>
-
-        <div class="row my-3">
-          <div class="col-4">
-            <a href="#">
-              <div class="card">
-                <img
-                src="/assets/images/overcooked 2.jpg"
-                class="card-img"
-                alt="..."
-                />
-              </div>
-              <h6 class="card-text my-2 features-title">
-                Best co-op games to play on PC
-              </h6>
-              <p class="card-text features-publisher"><small>By Publisher</small></p>
-            </a>
-          </div>
-  
-          <div class="col-4">
-            <a href="#">
-              <div class="card-4">
-                <img
-                src="/assets/images/city bus manager.jpg"
-                class="card-img"
-                alt="..."
-                />
-              </div>
-              <h6 class="card-text my-2 features-title">
-                City Bus Manager – Early Access — Is it worth it?
-              </h6>
-              <p class="card-text features-publisher"><small>By Publisher</small></p>
-            </a>
-          </div>
-  
-          <div class="col-4">
-            <a href="#">
-              <div class="card">
-                <img
-                src="/assets/images/Uncharted.jpg"
-                class="card-img"
-                alt="..."
-                />
-              </div>
-              <h6 class="card-text my-2 features-title">
-                Uncharted: The Legacy of Thieves Collection may cause photosensitivity issues
-              </h6>
-              <p class="card-text features-publisher"><small>By Publisher</small></p>
-            </a>
-          </div>
-
-        </div>
+        @endforeach
       </div>
 
       <div class="row my-5 position-relative top-0 start-50 translate-middle" id="more-features">
         <p>
-          <a href="#">More Features</a> 
+          <a href="{{ route('features') }}">More Features</a> 
         </p>
       </div>
 
@@ -564,109 +225,28 @@
       </div>
 
       <div class="row my-3">
+        @foreach($guides as $guide)
         <div class="col-4">
-          <a href="#">
+          <a href="{{ route('detail', $guide->slug) }}">
               <div class="card">
                 <img
-                src="/assets/images/Resident Evil.jpg"
+                  src="{{ Storage::disk('public')->url($guide->image) }}"
                 class="card-img"
-                alt="..."
+                alt="{{ $guide->title }}"
                 />
               </div>
             <h6 class="card-text my-2 guides-title">
-              What horror franchises could learn from Resident Evil
+              {{ $guide->title }}
             </h6>
-            <p class="card-text guides-publisher"><small>By Publisher</small></p>
+            <p class="card-text guides-publisher"><small>By {{ $guide->user->name }}</small></p>
           </a>
         </div>
-
-        <div class="col-4">
-          <a href="#">
-            <div class="card">
-              <img
-              src="/assets/images/Warhammer.jpg"
-              class="card-img"
-              alt="..."
-              />
-            </div>
-            <h6 class="card-text my-2 guides-title">
-              Best Warhammer 40K: Darktide weapons
-            </h6>
-            <p class="card-text guides-publisher"><small>By Publisher</small></p>
-          </a>
-        </div>
-
-        <div class="col-4">
-          <a href="#">
-            <div class="card">
-              <img
-              src="/assets/images/Farming Simulator 22.jpg"
-              class="card-img"
-              alt="..."
-              />
-            </div>
-            <h6 class="card-text my-2 guides-title">
-              Farming Simulator 22 – Platinum Edition — Is it worth it?
-            </h6>
-            <p class="card-text guides-publisher"><small>By Publisher</small></p>
-          </a>
-        </div>
-
-        <div class="row my-3">
-          <div class="col-4">
-            <a href="#">
-              <div class="card">
-                <img
-                src="/assets/images/overcooked 2.jpg"
-                class="card-img"
-                alt="..."
-                />
-              </div>
-              <h6 class="card-text my-2 guides-title">
-                Best co-op games to play on PC
-              </h6>
-              <p class="card-text guides-publisher"><small>By Publisher</small></p>
-            </a>
-          </div>
-  
-          <div class="col-4">
-            <a href="#">
-              <div class="card-4">
-                <img
-                src="/assets/images/city bus manager.jpg"
-                class="card-img"
-                alt="..."
-                />
-              </div>
-              <h6 class="card-text my-2 guides-title">
-                City Bus Manager – Early Access — Is it worth it?
-              </h6>
-              <p class="card-text guides-publisher"><small>By Publisher</small></p>
-            </a>
-          </div>
-  
-          <div class="col-4">
-            <a href="#">
-              <div class="card">
-                <img
-                src="/assets/images/Uncharted.jpg"
-                class="card-img"
-                alt="..."
-                />
-              </div>
-              <h6 class="card-text my-2 guides-title">
-                Uncharted: The Legacy of Thieves Collection may cause photosensitivity issues
-              </h6>
-              <p class="card-text guides-publisher"><small>By Publisher</small></p>
-            </a>
-          </div>
-
-        </div>
+        @endforeach
       </div>
 
       <div class="row my-5 position-relative top-0 start-50 translate-middle" id="more-guides">
         <p>
-          <a href="#">More Guides</a> 
+          <a href="{{ route('guides') }}">More Guides</a> 
         </p>
       </div>
 
@@ -680,9 +260,9 @@
         <hr class="hr-danger container-fluid" />
       </div>
 
-      <a href="#">
+      <a href="{{ route('releases') }}">
         <div class="img my-3">
-          <img src="/assets/images/game releases.jpg" class="img-fluid" alt="...">
+          <img src="{{ asset('assets/images/game releases.jpg') }}" class="img-fluid" alt="...">
         </div>
       </a>
 
@@ -695,95 +275,27 @@
         </h5>
         <hr class="hr-danger container-fluid"/>
 
+        @foreach($reviews as $review)
         <div class="col-4 my-3">
           <div class="card text-bg-dark">
-            <img src="/assets/images/city bus manager.jpg" class="card-img" alt="...">
+            <img src="{{ Storage::disk('public')->url($review->image) }}" class="card-img" alt="{{ $review->title }}">
             <div class="card-img-overlay">
-              <div class="star">9.5</div>
+              <div class="star">{{ $review->rating }}</div>
             </div>
           </div>
-          <a href="#">
+          <a href="{{ route('detail', $guide->slug) }}">
             <h5 class="card-text my-2 newrelease-title">
-              City Bus Manager
+              {{ $review->title }}
             </h5>
           </a>
         </div>
-
-        <div class="col-4 my-3">
-          <div class="card text-bg-dark">
-            <img src="/assets/images/dishonored 2.jpg" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <div class="star">9.5</div>
-            </div>
-          </div>
-          <a href="#">
-            <h5 class="card-text my-2 newrelease-title">
-              Dishonored 2
-            </h5>
-          </a>
-        </div>
-        
-        <div class="col-4 my-3">
-          <div class="card text-bg-dark">
-            <img src="/assets/images/marvin the martian.jpg" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <div class="star">9.5</div>
-            </div>
-          </div>
-          <a href="#">
-            <h5 class="card-text my-2 newrelease-title">
-              Marvin the martian
-            </h5>
-          </a>
-        </div>
-
-        <div class="col-4 my-3">
-          <div class="card text-bg-dark">
-            <img src="/assets/images/the devil in me.jpg" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <div class="star">9.5</div>
-            </div>
-          </div>
-          <a href="#">
-            <h5 class="card-text my-2 newrelease-title">
-              the devil in me
-            </h5>
-          </a>
-        </div>
-
-        <div class="col-4 my-3">
-          <div class="card text-bg-dark">
-            <img src="/assets/images/goat simulator 3.jpg" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <div class="star">9.5</div>
-            </div>
-          </div>
-          <a href="#">
-            <h5 class="card-text my-2 newrelease-title">
-              Goat Simulator 3
-            </h5>
-          </a>
-        </div>
-        
-        <div class="col-4 my-3">
-          <div class="card text-bg-dark">
-            <img src="/assets/images/marvel's spiderman.jpg" class="card-img" alt="...">
-            <div class="card-img-overlay">
-              <div class="star">9.5</div>
-            </div>
-          </div>
-          <a href="#">
-            <h5 class="card-text my-2 newrelease-title">
-              marvel’s spider-man: miles morales
-            </h5>
-          </a>
-        </div>
+        @endforeach
 
       </div>
 
       <div class="row my-5 position-relative top-0 start-50 translate-middle" id="more-reviews">
         <p>
-          <a href="#">More Reviews</a> 
+          <a href="{{ route('reviews') }}">More Reviews</a> 
         </p>
       </div>
 
