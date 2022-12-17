@@ -1,0 +1,594 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+$colorRed:#E3062D;
+$colorDarkRed: #5C0000;
+$colorWhite: #FFFFFF;
+$colorBlack: #0F0F0F;
+$colorGray: #E2E2E2;
+$colorGType: #7A7A7A;
+
+.star {
+    height: 50px;
+    width: 50px;
+    -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    text-align: center;
+    font-size: small;
+    background: $colorRed;
+    color: white;
+  }
+  
+  .star::before {
+    display: inline-block;
+    height: 100%;
+    background: blue;
+    vertical-align: middle;
+    content: '';
+  }
+
+hr {
+    height: 5px;
+    margin-left: 7px;
+    margin-right: 40px;
+    margin-bottom: -3px;
+  }
+
+  .hr-danger{
+    background-image: -webkit-linear-gradient(left, $colorRed, $colorGray, $colorGray);
+  }
+  
+  .hr-primary {
+    background-image: -webkit-linear-gradient($colorGray);
+  }
+
+nav {
+    background-color: $colorDarkRed !important;
+
+    .navbar-brand {
+        font-family: 'Ravi Prakash', cursive;
+        font-size: 2.4em;
+        color: $colorWhite;
+        span {
+            color: $colorRed;
+            font-family: 'Ravi Prakash', cursive;
+            font-size: 1.1em;
+        }
+    }
+
+    ul {
+        a {
+            color: $colorWhite !important;
+            font-weight: 600 !important;
+            font-size: 1em;
+        }
+
+    }
+}
+
+header {
+    .card {
+        .card-img-overlay {
+            top: unset !important;
+            background: linear-gradient(#00000000, black 99%) !important;
+        
+            .header-category {
+                background-color: $colorRed;
+                width: fit-content;
+                font-size: medium;
+                text-transform: uppercase;
+            }
+    
+            .header-subtitle {
+                text-transform: uppercase;
+                font-size: large;
+                font-weight: 600;
+            }
+
+            .header-publisher {
+                text-transform: capitalize;
+                font-size: 1em;
+            }
+
+            .s-header-category {
+                background-color: $colorRed;
+                width: fit-content;
+                font-size: small;
+                text-transform: uppercase;
+            }
+            
+            .s-header-subtitle {
+                text-transform: uppercase;
+                font-size: small;
+                font-weight: 600;
+            }
+
+            .s-header-publisher {
+                text-transform: capitalize;
+                font-size: 0.89em;
+            }
+
+            
+
+        }
+        
+    }
+
+}
+
+#upRelease {
+
+    a {
+        color: $colorBlack;
+        text-decoration: none;
+    }
+
+    #hover {
+            
+        a {
+            color: $colorGray;
+        }
+        
+        a:hover {
+            color: $colorRed;
+        }
+    }
+
+    .card {
+        border: $colorWhite;
+        .card-img-overlay {
+            top: unset !important;
+            background: linear-gradient(#00000000, black 99%) !important;
+        }
+        color: $colorWhite;
+        text-transform: uppercase;
+        
+        .card-title {
+            font-size: small;
+            background-color: $colorRed;
+            width: fit-content;
+        }
+
+    }
+
+    .uprelease-title {
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .uprelease-time {
+        font-size: small;
+        color: $colorGType;
+    }
+
+}
+
+#theLatest-newRelease {
+
+    a {
+        color: $colorBlack;
+        text-decoration: none;
+    }
+
+    .card {
+        border: $colorWhite;
+
+
+        .card-img-overlay {
+            top: unset !important;
+            //background: linear-gradient(#00000000, black 99%) !important;
+        }
+
+        .newrelease-category {
+            color: $colorWhite;
+            font-size: small;
+            background-color: $colorRed;
+            width: fit-content;
+        }
+    }
+
+    
+    .newrelease-title {
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .newrelease-publish {
+        font-size: small;
+        color: $colorGType;
+    }
+
+
+    .latest-category {
+        color: $colorRed;
+        font-size: small;
+        text-transform: uppercase;
+        text-decoration: underline;
+    }
+
+    .latest-title {
+        font-weight: 600;
+    }
+
+    .latest-subtitle {
+        font-weight: 500;
+        font-size: 0.95em;
+    }
+
+    .latest-publisher {
+        text-align: justify;
+    }
+
+    .latest-publish {
+        font-size: small;
+        color: $colorGType;
+    }
+
+    #more-news {
+        color: $colorGType;
+        width: fit-content;
+        text-align: center;
+        font-weight: 500;
+
+        a {
+            color: $colorGray;
+        }
+
+        a:hover {
+            color: $colorRed;
+        }
+    }
+}
+
+#features {
+    
+    a {
+        color: $colorBlack;
+        text-decoration: none;
+    }
+
+    .card {
+        border: $colorWhite;
+        .card-img-overlay {
+            top: unset !important;
+            background: linear-gradient(#00000000, black 99%) !important;
+        }
+        color: $colorWhite;
+        text-transform: uppercase;
+        
+        .card-title {
+            font-size: small;
+            background-color: $colorRed;
+            width: fit-content;
+        }
+
+    }
+
+    .features-title {
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .features-publisher {
+        font-size: small;
+        color: $colorGType;
+    }
+
+    #more-features {
+        color: $colorGType;
+        width: fit-content;
+        text-align: center;
+        font-weight: 500;
+
+        a {
+            color: $colorGray;
+        }
+
+        a:hover {
+            color: $colorRed;
+        }
+    }
+
+}
+
+#guides {
+    
+    a {
+        color: $colorBlack;
+        text-decoration: none;
+    }
+
+    .card {
+        border: $colorWhite;
+        .card-img-overlay {
+            top: unset !important;
+            background: linear-gradient(#00000000, black 99%) !important;
+        }
+        color: $colorWhite;
+        text-transform: uppercase;
+        
+        .card-title {
+            font-size: small;
+            background-color: $colorRed;
+            width: fit-content;
+        }
+
+    }
+
+    .guides-title {
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .guides-publisher {
+        font-size: small;
+        color: $colorGType;
+    }
+
+    #more-guides {
+        color: $colorGType;
+        width: fit-content;
+        text-align: center;
+        font-weight: 500;
+
+        a {
+            color: $colorGray;
+        }
+
+        a:hover {
+            color: $colorRed;
+        }
+    }
+
+}
+
+#reviews {
+
+    .card-img-overlay {
+        top: unset !important;
+        background: linear-gradient(#00000000, black 99%) !important;
+    }
+
+    a {
+        color: $colorBlack;
+        text-decoration: none;
+        text-transform: capitalize;
+        text-align: center;
+    }
+
+    #more-reviews {
+        color: $colorGType;
+        width: fit-content;
+        text-align: center;
+        font-weight: 500;
+
+        a {
+            color: $colorGray;
+        }
+
+        a:hover {
+            color: $colorRed;
+        }
+    }
+    
+}
+
+#newRelease {
+    
+    text-transform: capitalize;
+    
+    a {
+        color: $colorBlack;
+        text-decoration: none;
+    }
+    
+    .img-thumbnail {
+        border: 0;
+    }
+
+    .title {
+        text-align: center;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+
+    #hover {
+            
+        a {
+            color: $colorGray;
+        }
+        
+        a:hover {
+            color: $colorRed;
+        }
+    }
+
+}
+
+#bestSeller {
+    
+    text-transform: capitalize;
+    
+    a {
+        color: $colorBlack;
+        text-decoration: none;
+    }
+    
+    .img-thumbnail {
+        border: 0;
+    }
+
+    .title {
+        text-align: center;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+
+    #hover {
+            
+        a {
+            color: $colorGray;
+        }
+        
+        a:hover {
+            color: $colorRed;
+        }
+    }
+
+}
+
+#comingSoon {
+    
+    text-transform: capitalize;
+    
+    a {
+        color: $colorBlack;
+        text-decoration: none;
+    }
+    
+    .img-thumbnail {
+        border: 0;
+    }
+
+    .title {
+        text-align: center;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+
+    #hover {
+            
+        a {
+            color: $colorGray;
+        }
+        
+        a:hover {
+            color: $colorRed;
+        }
+    }
+
+}
+
+#mostPlayed {
+    
+    text-transform: capitalize;
+    
+    a {
+        color: $colorBlack;
+        text-decoration: none;
+    }
+    
+    .img-thumbnail {
+        border: 0;
+    }
+
+    .title {
+        text-align: center;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+
+    #hover {
+            
+        a {
+            color: $colorGray;
+        }
+        
+        a:hover {
+            color: $colorRed;
+        }
+    }
+
+}
+
+#detail-newRelease {
+    
+    text-transform: capitalize;
+    
+    a {
+        color: $colorBlack;
+        text-decoration: none;
+    }
+    
+    .img-thumbnail {
+        border: 0;
+    }
+
+    .title {
+        text-align: center;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+
+    #hover {
+            
+        a {
+            color: $colorGray;
+        }
+        
+        a:hover {
+            color: $colorRed;
+        }
+    }
+
+}
+
+#details {
+    
+    #category {
+        font-size: small;
+        color: $colorRed;
+        text-decoration: underline;
+    }
+
+}
+
+#title {
+    font-weight: bolder;
+    text-align: justify;
+}
+
+#publisher {
+    color: $colorBlack;
+    text-transform: capitalize;
+    font-size: small;
+}
+
+#publish {
+    font-size: small;
+    color: $colorGType;
+}
+
+#desc {
+    text-align: justify;
+}
+
+
+
+footer {
+    #footer-info {
+        background-color: $colorDarkRed;
+        color: $colorWhite;
+        #logo {
+            color: $colorWhite;
+            font-family: 'Ravi Prakash', cursive;
+            font-size: 2.4em;
+            span {
+                font-family: 'Ravi Prakash', cursive;
+                color: $colorRed;
+                font-size: 1.1em;
+            }
+        }
+
+        #location {
+            font-weight: bold;
+        }
+    }
+
+    #footer-copyright {
+        background-color: $colorBlack;
+        color: $colorWhite;
+    }
+}
+
