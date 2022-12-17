@@ -283,7 +283,7 @@
               <div class="star">{{ $review->rating }}</div>
             </div>
           </div>
-          <a href="{{ route('detail', $guide->slug) }}">
+          <a href="{{ route('detail', $review->slug) }}">
             <h5 class="card-text my-2 newrelease-title">
               {{ $review->title }}
             </h5>
