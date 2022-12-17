@@ -126,7 +126,7 @@
                   {{ $news_item->title }}
                 </h5>
               </a>
-              <p class="card-text my-4 latest-subtitle text-truncated">
+              <p class="card-text my-4 latest-subtitle text-truncate">
                 {{ $news_item->content }}
               </p>
               <p class="card-text latest-publisher my-0"><small>By {{ $news_item->user->name }}</small></p>
